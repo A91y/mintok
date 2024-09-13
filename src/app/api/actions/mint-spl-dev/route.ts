@@ -53,7 +53,7 @@ export const GET = async (req: Request) => {
               {
                 name: "amount",
                 type: "number",
-                label: "The amount of SOL to mint",
+                label: "The amount of SPL to mint",
                 required: true,
               },
             ],
