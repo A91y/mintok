@@ -93,9 +93,7 @@ export const POST = async (req: Request) => {
     } catch (err) {
       throw 'Invalid "account" provided';
     }
-    const connection = new Connection(
-      process.env.SOLANA_RPC! || clusterApiUrl("devnet")
-    );
+    const connection = new Connection(clusterApiUrl("devnet"));
 
     const mint = tokenMint;
 
