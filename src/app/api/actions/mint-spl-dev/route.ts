@@ -22,13 +22,16 @@ import {
 } from "@solana/web3.js";
 
 // create the standard headers for this route (including CORS)
-const headers = createActionHeaders();
+const headers = createActionHeaders({
+  chainId: "devnet",
+});
+const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
 export const GET = async (req: Request) => {
   try {
     const requestUrl = new URL(req.url);
     const baseHref = new URL(
-      `/api/actions/mint-spl`,
+      `/api/actions/mint-spl-dev`,
       requestUrl.origin
     ).toString();
 
@@ -93,7 +96,6 @@ export const POST = async (req: Request) => {
     } catch (err) {
       throw 'Invalid "account" provided';
     }
-    const connection = new Connection(clusterApiUrl("devnet"));
 
     const mint = tokenMint;
 
